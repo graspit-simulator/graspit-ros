@@ -1,0 +1,21 @@
+all: bin/graspit
+
+SVN_DIR = graspit_svn
+SVN_URL = https://graspit.svn.sourceforge.net/svnroot/graspit/trunk
+SVN_REVISION=-rHEAD
+SVN_PATCH = graspit_project.patch graspit_dbase.patch
+
+PACKAGE_DIR = $(shell rospack find graspit)
+
+include $(shell rospack find mk)/svn_checkout.mk
+
+bin/graspit: $(SVN_DIR)
+	cd $(SVN_DIR)/qhull && make
+	cd $(SVN_DIR) && qmake "EXT_DESTDIR = $(PACKAGE_DIR)/bin" "ADDITIONAL_INCLUDE_DIR=$(PACKAGE_DIR)/include" "ADDITIONAL_LINK_FLAGS=-Wl,-rpath,$(PACKAGE_DIR)/lib -L../lib -lSoQt" graspit.pro && make
+
+clean:
+	-rm -rf bin/graspit
+	-cd $(SVN_DIR) && make clean
+
+wipe: clean
+	-rm -rf $(SVN_DIR)

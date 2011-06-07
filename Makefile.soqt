@@ -1,0 +1,25 @@
+all: soqt_installed
+
+FILENAME = SoQt-1.4.1.tar.gz
+TARBALL = build/$(FILENAME)
+TARBALL_URL = http://pr.willowgarage.com/downloads/$(FILENAME)
+SOURCE_DIR = build/SoQt-1.4.1
+UNPACK_CMD = tar xzf
+MD5SUM_FILE = $(FILENAME).md5sum
+#TARBALL_PATCH=soqt_qt4.patch
+
+include $(shell rospack find mk)/download_unpack_build.mk
+
+soqt_installed: $(SOURCE_DIR)/unpacked
+	cd $(SOURCE_DIR) && autoconf && ./configure --prefix=`rospack find graspit`
+	cd $(SOURCE_DIR) && make && make install
+	touch soqt_installed
+
+clean:
+	-cd $(SOURCE_DIR) && make clean
+	-rm -rf soqt_installed
+
+wipe: clean
+	rm -rf $(SOURCE_DIR) build patched
+
+.PHONY : clean download

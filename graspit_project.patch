@@ -1,0 +1,16 @@
+Index: graspit.pro
+===================================================================
+--- graspit.pro	(revision 31)
++++ graspit.pro	(working copy)
+@@ -17,9 +17,9 @@
+ LAPACK = mkl
+ 
+ #build and use interface with Columbia Grasp Database
+-#CONFIG += cgdb
++CONFIG += cgdb
+ #and use the ros database manager
+-#CONFIG += graspit_ros
++CONFIG += graspit_ros
+ 
+ #link against Mosek QP solver (must be installed separately)
+ #CONFIG += mosek
