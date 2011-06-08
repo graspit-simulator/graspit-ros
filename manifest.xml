@@ -13,6 +13,8 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/graspit</url>
 
+  <rosdep name="libblas-dev"/>
+  <rosdep name="liblapack-dev"/>
   <rosdep name="libqt4-dev"/>
   <rosdep name="libqt4-opengl-dev"/>
   <rosdep name="libqt4-sql-psql"/>
