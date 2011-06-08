@@ -17,7 +17,7 @@ if(_make_failed)
   message(FATAL_ERROR "Build of soqt failed")
 endif(_make_failed)
 
-execute_process(COMMAND cmake -E chdir ${PROJECT_SOURCE_DIR} make -f Makefile.graspit.svn
+execute_process(COMMAND cmake -E chdir ${PROJECT_SOURCE_DIR} make -f Makefile.graspit.tarball
                 RESULT_VARIABLE _graspit_make_failed)
 if(_graspit_make_failed)
   message(FATAL_ERROR "Build of graspit failed")
