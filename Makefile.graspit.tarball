@@ -1,0 +1,26 @@
+all: bin/graspit
+
+FILENAME = graspit-2.2_prerelease_1.tar.gz
+TARBALL = $(FILENAME)
+TARBALL_URL = http://pr.willowgarage.com/downloads/$(FILENAME)
+INITIAL_DIR = build/2.2_prerelease_1
+SOURCE_DIR = graspit_source
+UNPACK_CMD = tar xzf
+MD5SUM_FILE = $(FILENAME).md5sum
+TARBALL_PATCH=graspit/graspit_project.patch graspit/graspit_dbase.patch
+
+PACKAGE_DIR = $(shell rospack find graspit)
+
+include $(shell rospack find mk)/download_unpack_build.mk
+
+bin/graspit: $(SOURCE_DIR)/unpacked
+	cd $(SOURCE_DIR)/qhull && make
+	cd $(SOURCE_DIR) && qmake "EXT_DESTDIR = $(PACKAGE_DIR)/bin" "ADDITIONAL_INCLUDE_DIR=$(PACKAGE_DIR)/include" "ADDITIONAL_LINK_FLAGS=-Wl,-rpath,$(PACKAGE_DIR)/lib -L../lib -lSoQt" graspit.pro && make
+
+clean:
+	-rm -rf bin/graspit
+	-cd $(SOURCE_DIR) && make clean
+
+wipe: clean
+	-rm -rf $(SOURCE_DIR)
+	-rm -rf $(TARBALL)
