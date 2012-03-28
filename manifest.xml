@@ -22,7 +22,7 @@
 
   <export>
     <!-- graspit's file structure is not very good, in need of an overhaul -->
-    <cpp cflags="-I${prefix}/include -I${prefix}/graspit_source -I${prefix}/graspit_source/include -I${prefix}/graspit_source/src/Collision -I${prefix}/graspit_source/src/DBase -I${prefix}/graspit_source/src/DBase/DBPlanner -I${prefix}/graspit_source/ui" />
+    <cpp cflags="-I${prefix}/include -I${prefix}/graspit_source -I${prefix}/graspit_source/include -I${prefix}/graspit_source/src -I${prefix}/graspit_source/src/Collision -I${prefix}/graspit_source/src/DBase -I${prefix}/graspit_source/src/DBase/DBPlanner -I${prefix}/graspit_source/ui" />
 </export>
 <depend package="household_objects_database_msgs" />
 <depend package="object_manipulation_msgs" />
