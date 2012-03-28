@@ -4,9 +4,6 @@
     This package downloads and builds the GraspIt! simulator, 
     developed in the Robotics Lab at Columbia University.
 
-    It also downloads and build the SoQt library which is needed 
-    for GraspIt.
-
   </description>
   <author></author>
   <license>GPL</license>
@@ -18,7 +15,8 @@
   <rosdep name="libqt4-dev"/>
   <rosdep name="libqt4-opengl-dev"/>
   <rosdep name="libqt4-sql-psql"/>
-  <rosdep name="libcoin40-dev"/>
+  <rosdep name="libcoin60-dev"/>
+  <rosdep name="libsoqt4-dev"/>
 
   <export>
     <!-- graspit's file structure is not very good, in need of an overhaul -->

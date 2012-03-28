@@ -11,7 +11,7 @@ include $(shell rospack find mk)/svn_checkout.mk
 
 bin/graspit: $(SVN_DIR)
 	cd $(SVN_DIR)/qhull && make
-	cd $(SVN_DIR) && qmake "EXT_DESTDIR = $(PACKAGE_DIR)/bin" "ADDITIONAL_INCLUDE_DIR=$(PACKAGE_DIR)/include" "ADDITIONAL_LINK_FLAGS=-Wl,-rpath,$(PACKAGE_DIR)/lib -L../lib -lSoQt" graspit.pro && make
+	cd $(SVN_DIR) && qmake "EXT_DESTDIR = $(PACKAGE_DIR)/bin" "ADDITIONAL_INCLUDE_DIR=$(PACKAGE_DIR)/include" "ADDITIONAL_LINK_FLAGS=-Wl,-rpath,$(PACKAGE_DIR)/lib " graspit.pro && make
 
 clean:
 	-rm -rf bin/graspit
