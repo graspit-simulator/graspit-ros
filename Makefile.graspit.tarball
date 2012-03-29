@@ -3,11 +3,11 @@ all: bin/graspit
 FILENAME = graspit-2.2_prerelease_3.tar.gz
 TARBALL = $(FILENAME)
 TARBALL_URL = http://pr.willowgarage.com/downloads/$(FILENAME)
-INITIAL_DIR = build/2.2_prerelease_3
+INITIAL_DIR = build/Graspit
 SOURCE_DIR = graspit_source
 UNPACK_CMD = tar xzf
 MD5SUM_FILE = $(FILENAME).md5sum
-TARBALL_PATCH=graspit/graspit_project.patch graspit/graspit_dbase.patch
+TARBALL_PATCH=graspit_project.patch graspit_dbase.patch
 
 PACKAGE_DIR = $(shell rospack find graspit)
 
