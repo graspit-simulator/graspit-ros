@@ -14,7 +14,6 @@ PACKAGE_DIR = $(shell rospack find graspit)
 include $(shell rospack find mk)/download_unpack_build.mk
 
 bin/graspit: $(SOURCE_DIR)/unpacked
-	cd $(SOURCE_DIR)/qhull && make
 	cd $(SOURCE_DIR) && qmake "EXT_DESTDIR = $(PACKAGE_DIR)/bin" "ADDITIONAL_INCLUDE_DIR=$(PACKAGE_DIR)/include" "ADDITIONAL_LINK_FLAGS=-Wl,-rpath,$(PACKAGE_DIR)/lib " graspit.pro && make
 
 clean:
