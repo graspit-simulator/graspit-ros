@@ -17,7 +17,7 @@
   <rosdep name="libqt4-sql-psql"/>
   <rosdep name="libcoin60-dev"/>
   <rosdep name="libsoqt4-dev"/>
-  <rosdep name="libqhull-dev"/>
+  <rosdep name="libqhull"/>
 
   <export>
     <!-- graspit's file structure is not very good, in need of an overhaul -->
