@@ -1,6 +1,6 @@
 all: bin/graspit
 
-FILENAME = graspit-2.2.tar.gz
+FILENAME = graspit-2.3_prerelease_1.tar.gz
 TARBALL = $(FILENAME)
 TARBALL_URL = http://pr.willowgarage.com/downloads/$(FILENAME)
 INITIAL_DIR = build/Graspit
