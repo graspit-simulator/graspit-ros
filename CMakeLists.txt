@@ -11,7 +11,7 @@ include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 
 rosbuild_init()
 
-execute_process(COMMAND cmake -E chdir ${PROJECT_SOURCE_DIR} make -f Makefile.graspit.tarball
+execute_process(COMMAND cmake -E chdir ${PROJECT_SOURCE_DIR} make -f Makefile.graspit.svn
                 RESULT_VARIABLE _graspit_make_failed)
 if(_graspit_make_failed)
   message(FATAL_ERROR "Build of graspit failed")
