@@ -2,7 +2,7 @@ all: bin/graspit
 
 SVN_DIR = graspit_source
 SVN_URL = https://graspit.svn.sourceforge.net/svnroot/graspit/trunk
-SVN_REVISION=-rHEAD
+SVN_REVISION=-r126
 SVN_PATCH = graspit_project.patch graspit_dbase.patch
 
 PACKAGE_DIR = $(shell rospack find graspit)
