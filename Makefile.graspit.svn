@@ -1,7 +1,7 @@
 all: bin/graspit
 
 SVN_DIR = graspit_source
-SVN_URL = https://graspit.svn.sourceforge.net/svnroot/graspit/trunk
+SVN_URL = svn://svn.code.sf.net/p/graspit/code/trunk
 SVN_REVISION=-r126
 SVN_PATCH = graspit_project.patch graspit_dbase.patch
 
