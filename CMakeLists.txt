@@ -1,36 +1,36 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+cmake_minimum_required(VERSION 2.8.3)
+project(graspit)
 
-# Set the build type.  Options are:
-#  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
-#  Debug          : w/ debug symbols, w/o optimization
-#  Release        : w/o debug symbols, w/ optimization
-#  RelWithDebInfo : w/ debug symbols, w/ optimization
-#  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
-#set(ROS_BUILD_TYPE RelWithDebInfo)
+set(PACKAGE_DEPS
+  household_objects_database
+)
 
-rosbuild_init()
+find_package(catkin REQUIRED COMPONENTS ${PACKAGE_DEPS})
 
-execute_process(COMMAND cmake -E chdir ${PROJECT_SOURCE_DIR} make -f Makefile.graspit.svn
-                RESULT_VARIABLE _graspit_make_failed)
-if(_graspit_make_failed)
-  message(FATAL_ERROR "Build of graspit failed")
-endif(_graspit_make_failed)
+catkin_package(
+  CATKIN_DEPENDS ${PACKAGE_DEPS}
+  INCLUDE_DIRS . graspit_source
+)
 
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set the default path for built libraries to the "lib" directory
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+include_directories(${catkin_INCLUDE_DIRS})
 
-#uncomment if you have defined messages
-#rosbuild_genmsg()
-#uncomment if you have defined services
-#rosbuild_gensrv()
+add_custom_command(
+  OUTPUT ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/graspit_source/graspit.pro
+  COMMAND svn co svn://svn.code.sf.net/p/graspit/code/trunk -rHEAD graspit_source
+  COMMAND patch -N -d graspit_source -p0 < graspit_project.patch
+  COMMAND patch -N -d graspit_source -p0 < graspit_dbase.patch
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}
+)
 
-#common commands for building c++ executables and libraries
-#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-#target_link_libraries(${PROJECT_NAME} another_library)
-#rosbuild_add_boost_directories()
-#rosbuild_link_boost(${PROJECT_NAME} thread)
-#rosbuild_add_executable(example examples/example.cpp)
-#target_link_libraries(example ${PROJECT_NAME})
+add_custom_target(graspit_build ALL
+  DEPENDS ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/graspit_source/graspit.pro
+  COMMAND qmake "EXT_DESTDIR = ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_BIN_DESTINATION}" ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/graspit_source/graspit.pro
+  COMMAND make
+)
+
+add_dependencies(graspit_build household_objects_database)
+
+install(DIRECTORY graspit_source/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  PATTERN ".svn" EXCLUDE
+)

@@ -2,7 +2,7 @@ all: bin/graspit
 
 SVN_DIR = graspit_source
 SVN_URL = svn://svn.code.sf.net/p/graspit/code/trunk
-SVN_REVISION=-r126
+SVN_REVISION=-r136
 SVN_PATCH = graspit_project.patch graspit_dbase.patch
 
 PACKAGE_DIR = $(shell rospack find graspit)
@@ -10,7 +10,7 @@ PACKAGE_DIR = $(shell rospack find graspit)
 include $(shell rospack find mk)/svn_checkout.mk
 
 bin/graspit: $(SVN_DIR)
-	cd $(SVN_DIR) && qmake "EXT_DESTDIR = $(PACKAGE_DIR)/bin" "ADDITIONAL_INCLUDE_DIR=$(PACKAGE_DIR)/include" "ADDITIONAL_LINK_FLAGS=-Wl,-rpath,$(PACKAGE_DIR)/lib " graspit.pro && make
+	cd $(SVN_DIR) && qmake "EXT_DESTDIR = $(PACKAGE_DIR)/bin" graspit.pro && make
 
 clean:
 	-rm -rf bin/graspit

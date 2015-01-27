@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package>
+  <name>graspit</name>
+  <description>
+    This package downloads and builds the GraspIt! simulator, 
+    developed in the Robotics Lab at Columbia University.
+  </description>
+  <author></author>
+  <license>GPL</license>
+  <maintainer email="matei.ciocarlie@gmail.com">Matei Ciocarlie</maintainer>
+  <version>0.2.0</version>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <!--
+  <build_depend>libblas-dev</build_depend>
+  <build_depend>liblapack-dev</build_depend>
+  <build_depend>libqt4-dev</build_depend>
+  <build_depend>libqt4-opengl-dev</build_depend>
+  <build_depend>libqt4-sql-psql</build_depend>
+  <build_depend>libcoin80-dev</build_depend>
+  <build_depend>libsoqt4-dev</build_depend>
+  <build_depend>libqhull</build_depend>
+  -->
+  <build_depend>household_objects_database</build_depend>
+
+  <!--
+  <run_depend>libblas</run_depend>
+  <run_depend>liblapack</run_depend>
+  <run_depend>libqt4</run_depend>
+  <run_depend>libqt4-opengl</run_depend>
+  <run_depend>libqt4-sql-psql</run_depend>
+  <run_depend>libcoin80</run_depend>
+  <run_depend>libsoqt4</run_depend>
+  <run_depend>libqhull</run_depend>
+  -->
+  <run_depend>household_objects_database</run_depend>
+ 
+</package>
+
+
