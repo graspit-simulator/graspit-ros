@@ -7,7 +7,7 @@
   </description>
   <author></author>
   <license>GPL</license>
-  <maintainer email="matei.ciocarlie@gmail.com">Matei Ciocarlie</maintainer>
+  <maintainer email="matei.ciocarlie@columbia.com">Matei Ciocarlie</maintainer>
   <version>0.2.0</version>
 
   <buildtool_depend>catkin</buildtool_depend>
