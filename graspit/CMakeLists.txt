@@ -16,7 +16,7 @@ include_directories(${catkin_INCLUDE_DIRS})
 
 add_custom_command(
   OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/graspit.pro
-  COMMAND svn co svn://svn.code.sf.net/p/graspit/code/trunk -rHEAD graspit_source
+  COMMAND svn co svn://svn.code.sf.net/p/graspit/code/trunk -r157 graspit_source
   COMMAND patch -N -d graspit_source -p0 < graspit_project.patch
   COMMAND patch -N -d graspit_source -p0 < graspit_dbase.patch
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
