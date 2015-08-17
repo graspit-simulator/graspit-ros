@@ -1,0 +1,1 @@
+File placed in this directory so that it does not get pruned upon releases.
