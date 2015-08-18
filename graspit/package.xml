@@ -20,6 +20,7 @@
   <build_depend>libcoin80-dev</build_depend>
   <build_depend>libsoqt4-dev</build_depend>
   <build_depend>libqhull</build_depend>
+  <build_depend>subversion</build_depend>
 
   <build_depend>household_objects_database</build_depend>
 
