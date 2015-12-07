@@ -16,7 +16,10 @@ include_directories(${catkin_INCLUDE_DIRS})
 
 add_custom_command(
   OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/graspit.pro
+  COMMAND mv graspit_source/anchor.txt . 
+  COMMAND rm -r graspit_source
   COMMAND git clone git@github.com:graspit-simulator/graspit.git graspit_source
+  COMMAND mv anchor.txt graspit_source
   COMMAND patch -N -d graspit_source -p0 < graspit_project.patch
   COMMAND patch -N -d graspit_source -p0 < graspit_dbase.patch
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
