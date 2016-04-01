@@ -1,0 +1,3 @@
+[submodule "graspit/graspit_source"]
+	path = graspit/graspit_source
+	url = https://github.com/graspit-simulator/graspit.git
