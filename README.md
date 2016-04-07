@@ -8,9 +8,8 @@ This repository contains wrappers and interfaces between GraspIt! and ROS. It co
 
 ```bash
  git clone https://github.com/graspit-simulator/graspit-ros.git
- cd graspit-ros
- git submodule init
- git submoduel update
+ cd {top of catkin_ws}
+ catkin_make
 ```
 
 ## Running
