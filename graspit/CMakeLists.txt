@@ -25,9 +25,9 @@ add_custom_command(
   OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/graspit.pro
   COMMAND git submodule init
   COMMAND git submodule update
-  COMMAND patch -N -d graspit_source -p0 < graspit_project.patch
-  COMMAND patch -N -d graspit_source -p0 < graspit_dbase.patch
-  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  COMMAND cd graspit && patch -N -d graspit_source -p0 < graspit_project.patch && cd ..
+  COMMAND cd graspit && patch -N -d graspit_source -p0 < graspit_dbase.patch && cd ..
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/..
 )
 add_custom_target(graspit_build ALL
   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/graspit.pro
