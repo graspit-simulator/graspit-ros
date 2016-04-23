@@ -5,6 +5,15 @@ set(PACKAGE_DEPS
 )
 
 find_package(catkin REQUIRED COMPONENTS ${PACKAGE_DEPS})
+find_program(HAVE_QMAKE_QT_4 qmake-qt4)
+
+if(HAVE_QMAKE_QT_4)
+  set(QMAKE_COMMAND qmake-qt4)
+else(NOT HAVE_QMAKE_QT_4)
+  set(QMAKE_COMMAND qmake)
+endif(HAVE_QMAKE_QT_4)
+message("GraspIt built with ${QMAKE_COMMAND}")
+
 
 catkin_package(
   CATKIN_DEPENDS ${PACKAGE_DEPS}
@@ -22,7 +31,7 @@ add_custom_command(
 )
 add_custom_target(graspit_build ALL
   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/graspit.pro
-  COMMAND qmake "EXT_DESTDIR = ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_BIN_DESTINATION}" ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/graspit.pro
+  COMMAND ${QMAKE_COMMAND}  "EXT_DESTDIR = ${CATKIN_DEVEL_PREFIX}/${CATKIN_PACKAGE_BIN_DESTINATION}" ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/graspit.pro
   COMMAND make
 )
 
