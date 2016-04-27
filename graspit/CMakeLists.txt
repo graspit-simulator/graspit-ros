@@ -5,28 +5,10 @@ set(PACKAGE_DEPS
 )
 
 include(ProcessorCount)
-if(NOT DEFINED PROCESSOR_COUNT)
-  set(PROCESSOR_COUNT 0)
-  # Linux:
-  set(cpuinfo_file “/proc/cpuinfo”)
-  if(EXISTS “${cpuinfo_file}”)
-    file(STRINGS “${cpuinfo_file}” procs REGEX “^processor.: [0-9]+$”)
-    list(LENGTH procs PROCESSOR_COUNT)
-  endif()
-  # Mac:
-  if(APPLE)
-    find_program(cmd_sys_pro “system_profiler”)
-    if(cmd_sys_pro)
-      execute_process(COMMAND ${cmd_sys_pro} OUTPUT_VARIABLE info)
-      string(REGEX REPLACE “^.*Total Number Of Cores: ([0-9]+).*$” “\\1”
-        PROCESSOR_COUNT “${info}”)
-    endif()
-  endif()
-
-  # Windows:
-  if(WIN32)
-    set(PROCESSOR_COUNT “$ENV{NUMBER_OF_PROCESSORS}”)
-  endif()
+if(DEFINED PROCESSOR_COUNT)
+    ProcessorCount(N)
+else()
+    set(N 4)
 endif()
 
 find_package(catkin REQUIRED COMPONENTS ${PACKAGE_DEPS})
@@ -52,7 +34,6 @@ set_directory_properties(PROPERTY ADDITIONAL_MAKE_CLEAN_FILES ${CMAKE_CURRENT_SO
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/include)
 
-ProcessorCount(N)
 include_directories(${catkin_INCLUDE_DIRS})
 add_custom_target(graspit_build ALL
   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/graspit.pro
