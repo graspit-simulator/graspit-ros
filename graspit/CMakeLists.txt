@@ -12,14 +12,6 @@ catkin_package(
   INCLUDE_DIRS . graspit_source graspit_source/include/
 )
 
-add_custom_command(
-  OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/CMakeLists.txt
-  COMMAND git submodule init
-  COMMAND git submodule update
-  COMMAND cd graspit && patch -N -d graspit_source -p0 < graspit_project.patch && cd ..
-  COMMAND cd graspit && patch -N -d graspit_source -p0 < graspit_dbase.patch && cd ..
-  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/..
-)
 set_directory_properties(PROPERTY ADDITIONAL_MAKE_CLEAN_FILES ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/graspit_source/include)

@@ -7,7 +7,7 @@ This repository contains wrappers and interfaces between GraspIt! and ROS. It co
 ## Installation
 
 ```bash
- git clone https://github.com/graspit-simulator/graspit-ros.git
+ git clone https://github.com/graspit-simulator/graspit-ros.git --recursive
  cd {top of catkin_ws}
  catkin_make
 ```
