@@ -9,8 +9,9 @@ More information can be found at http://graspit-simulator.github.io/build/html/i
 ## Installation
 
 ```bash
- git clone https://github.com/graspit-simulator/graspit-ros.git --recursive
- cd {top of catkin_ws}
+ cd ros_ws/src
+ git clone https://github.com/graspit-simulator/graspit-ros --recursive
+ cd ..
  catkin_make
 ```
 
