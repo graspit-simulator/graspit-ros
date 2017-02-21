@@ -19,4 +19,5 @@ This repository contains wrappers and interfaces between GraspIt! and ROS. It co
 ```
 
 ## Exposing GraspIt! via ROS
-More information can be found at http://graspit-simulator.github.io/build/html/installation_ros.html explaining how to expose GraspIt! functionality via ROS.
+More information can be found at http://graspit-simulator.github.io/build/html/installation_ros.html explaining how to expose GraspIt! functionality via ROS, and an example is shown here:
+https://github.com/graspit-simulator/graspit_interface
