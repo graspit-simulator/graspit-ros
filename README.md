@@ -15,6 +15,8 @@ This repository contains wrappers and interfaces between GraspIt! and ROS. It co
 ## Running GraspIt!
 
 ```bash
+ cd ros_ws/src/graspit-ros/graspit/graspit_source
+ export GRASPIT=$PWD
  rosrun graspit graspit_simulator
 ```
 
