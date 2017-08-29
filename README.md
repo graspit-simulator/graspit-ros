@@ -9,7 +9,7 @@ cmake ..
 make -j5
 sudo make install
 ```
-So there is repo provides no additional benefit as GraspIt! no longer needs to be installed per ros workspace.
+So this repo provides no additional benefit as GraspIt! no longer needs to be installed per ros workspace.
 
 
 # graspit-ros
