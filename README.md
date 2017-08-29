@@ -1,3 +1,17 @@
+# Deprecated!!!
+GraspIt! can now be installed via 
+```
+git clone https://github.com/graspit-simulator/graspit.git
+cd graspit
+mkdir build
+cd build
+cmake ..
+make -j5
+sudo make install
+```
+So there is repo provides no additional benefit as GraspIt! no longer needs to be installed per ros workspace.
+
+
 # graspit-ros
 ROS wrapper for the GraspIt! simulator
 
