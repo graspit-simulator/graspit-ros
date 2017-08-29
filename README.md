@@ -1,5 +1,5 @@
 # Deprecated!!!
-GraspIt! can now be installed via 
+GraspIt! now has an install target, and can be installed via 
 ```
 git clone https://github.com/graspit-simulator/graspit.git
 cd graspit
@@ -9,7 +9,7 @@ cmake ..
 make -j5
 sudo make install
 ```
-So this repo provides no additional benefit as GraspIt! no longer needs to be installed per ros workspace.
+So this repo provides no benefit as GraspIt! no longer needs to be included in each ros workspace.
 
 
 # graspit-ros
